@@ -8,15 +8,32 @@
 </head>
 <body>
     <h1>Hello</h1>
-    <h1>Add a Friend</h1>
-    <form action="/create_user" method="POST">
-        <label for="fname">First Name:</label>
-        <input type="text" name="fname">
-        <label for="lname">Last Name:</label>
-        <input type="text" name="lname">
-        <label for="email" >Email:</label>
-        <input type="text" name="email">
+    <h1>Add a Dojo</h1>
+    <form action="/createdojo" method="POST">
+        <label for="name">First Name:</label>
+        <input type="text" name="name">
         <input type="submit" value="Add User">
     </form> 
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for one_dojo in dojos %}
+                <tr>
+                    <td>{{one_dojo.id}}</td>
+                    <td>{{one_dojo.name}}</td>
+                    <td>
+                        <a href="/overview/{{one_dojo.id}}">See all ninjas inside</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/go_to_add_ninja">Add Ninja</a>
 </body>
 </html>
