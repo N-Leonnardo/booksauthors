@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <h1>Add a Book</h1>
+    <form action="/create_book" method="POST">
+        <label for="title">First Name:</label>
+        <input type="text" name="title">
+
+        <label for="num_of_pages">Num of pages:</label>
+        <input type="text" name="num_of_pages">
+
+
+        <input type="submit" value="Add User">
+    </form> 
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>num_of_pages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for one_book in books %}
+                <tr>
+                    <td>{{one_book.id}}</td>
+                    <td>{{one_book.title}}</td>
+                    <td>{{one_book.num_of_pages}}</td>
+                    <td>
+                        <!-- <a href="/overview/{{one_book.id}}">See all ninjas inside</a> -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+<a href="/">Home</a>
+
+</body>
+</html>
